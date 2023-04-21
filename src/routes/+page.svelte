@@ -1,7 +1,6 @@
 <script lang="ts">
 	/* Components */
 	import DiscussionDisplay from "./DiscussionDisplay.svelte"
-	import CreateDiscussion from "./CreateDiscussion.svelte"
 	import ChatBox from "./ChatBox.svelte"
 
 	let new_message: string
@@ -23,7 +22,7 @@
 	<!-- Vertical grid 1-->
 	<div class="both grid grid-rows-[1fr_auto]" id="convos">
 		<section class="p-4">
-			<CreateDiscussion />
+			<button class="btn variant-filled">Create new Discussion</button>
 		</section>
 		<section class="overflow-y-auto">
 			{#each discussions as d}

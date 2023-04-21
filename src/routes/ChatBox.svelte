@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { fetchPostJSON } from "$lib/global"
 	import { createEventDispatcher } from "svelte"
 	import type { Message } from "$lib/types"
 

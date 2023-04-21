@@ -5,7 +5,6 @@
 
 	import InfiniteLoading from "svelte-infinite-loading"
 	import ChatBubble from "./ChatBubble.svelte"
-	import { fetchGet } from "$lib/global"
 
 	export let currentDiscussionId: number // To detect change of current conversation
 	export let new_message: string
@@ -19,19 +18,9 @@
 	const initial_load = 10
 	let load_error: boolean
 	async function switchMessages(_currentDiscussionId: typeof currentDiscussionId) {
-		const api: string = `/api/chans/${currentDiscussionId}/messages`
-		load_error = false
-		let fetched_messages
-		try {
-			const response = await fetchGet(api, { nMessages: initial_load })
-			fetched_messages = await response.json()
-		} catch (err: any) {
-			load_error = true
-			console.log("DiscussionDisplay", fetched_messages)
-			console.error("DiscussionDisplay", "Could not fetch conversation:", err.message)
-			return
+		for (let i = 0; i < initial_load && message_pool.length > 0; ++i) {
+			displayed_messages.push(message_pool.pop() as string)
 		}
-		if (_currentDiscussionId === currentDiscussionId) displayed_messages = fetched_messages
 	}
 
 	const reactivity = 1

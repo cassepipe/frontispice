@@ -22,10 +22,6 @@
 					<a href="/">Transcendance</a>
 				</strong>
 			</svelte:fragment>
-			{#if true}
-				<a class="btn text-lg font-semibold" href="/chat"> Chat </a>
-				<a class="btn text-lg font-semibold" href="/pong"> Pong </a>
-			{/if}
 			<svelte:fragment slot="trail">
 				{#if true}
 					<button class="btn variant-filled-secondary text-xs font-semibold">
