@@ -24,12 +24,13 @@
 	}
 
 	const reactivity = 1
-	const loading_greediness = 10
+	const loading_greediness = 50
 	function infiniteHandler(e: InfiniteEvent) {
 		const {
 			detail: { loaded, complete },
 		} = e
 		new Promise((resolve) => {
+			console.log("Getting new messages...")
 			let tmp: string[] = []
 			for (let i = 0; i < loading_greediness && message_pool.length > 0; ++i) {
 				tmp.push(message_pool.pop() as string)
