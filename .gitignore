@@ -12,4 +12,3 @@ vite.config.ts.timestamp-*
 Session.vim
 package-lock.json
 *.mjs
-*.js
