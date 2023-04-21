@@ -2,10 +2,7 @@
 	/* Components */
 	import DiscussionDisplay from "./DiscussionDisplay.svelte"
 	import CreateDiscussion from "./CreateDiscussion.svelte"
-	import DiscussionList from "./DiscussionList.svelte"
 	import ChatBox from "./ChatBox.svelte"
-	/* stores */
-	/*utils*/
 
 	let new_message: string
 	function messageSentHandler(e: CustomEvent<typeof new_message>) {
@@ -28,10 +25,13 @@
 		<section class="p-4">
 			<CreateDiscussion />
 		</section>
-		<section class="text-red-800">
-			{currentDiscussionId}
+		<section class="overflow-y-auto">
+			{#each discussions as d}
+				<div class="variant-form-material h-16 p-4 font-bold">
+					{d}
+				</div>
+			{/each}
 		</section>
-		<section class="overflow-y-auto" />
 	</div>
 
 	<!-- Vertical grid 2-->
